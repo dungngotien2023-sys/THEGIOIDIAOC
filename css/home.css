@@ -1,0 +1,484 @@
+/* Giao diện Topbar (Header) gốc của bạn */
+.topbar {
+  min-height: 72px;
+  padding: 0 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #292e3a;
+  background: #12151c;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Đảm bảo Header LUÔN NỔI LÊN TRÊN cùng */
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#index-btn, #about-btn {
+  color: #ff365e;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 1px;
+  background: none;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#index-btn:hover,
+#about-btn:hover {
+  color: #e21e45;
+}
+
+/* =========================================================
+   PHẦN BỔ SUNG CHO AVATAR & MENU XỔ XUỐNG (DỰA TRÊN CSS CŨ)
+   ========================================================= */
+
+/* Khu vực chứa Avatar nằm trong .user-area */
+.user-menu-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header-avatar-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #ff365e; /* Phối màu viền theo tone đỏ chủ đạo của bạn */
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.header-avatar-btn:hover {
+  transform: scale(1.05);
+  border-color: #e21e45;
+}
+
+.header-avatar-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Bảng menu xổ xuống (Dropdown) */
+.user-dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55px; /* Nằm ngay bên dưới avatar */
+  background-color: #171a22;
+  border: 1px solid #292e3a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width: 210px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.user-dropdown-menu.show {
+  display: block;
+  animation: fadeInDown 0.2s ease;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 12px 18px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background-color 0.2s, color 0.2s;
+  border-bottom: 1px solid #21262d;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: #21262d;
+  color: #ff365e;
+}
+
+.dropdown-item.logout-item {
+  color: #ff365e;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.hero-content{
+  max-width:690px;
+}
+.tag{
+  color:#ff6381;
+  font-weight:800;
+  letter-spacing:2px;
+}
+.hero h1{
+  font-size:clamp(44px,8vw,84px);
+  line-height:.95;
+  margin:12px 0 24px;
+}
+.hero p{
+  color:#c6cbd6;
+  font-size:18px;
+  line-height:1.7;
+}
+.hero, .hero-section {
+  position: relative;
+  /* Kết hợp một lớp phủ tối màu (rgba) với hình nền bất động sản từ Unsplash */
+  background: linear-gradient(rgba(15, 17, 23, 0.85), rgba(15, 17, 23, 0.85)), 
+              url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600') no-repeat center center;
+  background-size: cover;
+  padding: 100px 120px; /* Tăng khoảng cách trên dưới cho thoáng */
+  border-bottom: 1px solid #292e3a;
+}
+.cta{
+  display:inline-block;
+  margin-top:12px;
+  padding:13px 18px;
+  border-radius:10px;
+  background:#ff365e;
+  text-decoration:none;
+  font-weight:800;
+  border: 1px solid #ff365e;
+  transition: 0.3s;
+}
+.cta:hover{
+  background-color: #121212;
+  color: #ff365e;
+}
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  padding:55px 8vw 80px;
+}
+.features article{
+  padding:24px;
+  border:1px solid #2b303d;
+  border-radius:14px;
+  background:#171a22;
+  transition: 0.3s;
+}
+.features p{
+  color:#aeb5c4;
+  line-height:1.6;
+}
+.features article:hover{
+  transform: translateY(-5px);
+  border-color: #ff365e;
+}
+@media(max-width:760px){
+  .topbar{
+    padding:14px 20px;
+    align-items:flex-start;
+  }
+  .user-area{
+    flex-direction:column;
+    align-items:flex-end;
+  }
+  .features{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Layout danh mục Bất Động Sản */
+.real-estate-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.real-estate-section h2 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.loading {
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* Khung Lưới Grid hiển thị sản phẩm */
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Thẻ sản phẩm */
+.property-card {
+  background: #1c1c1e;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2c2c2e;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-8px);
+  border-color: #ff9800;
+  box-shadow: 0 12px 24px rgba(255, 152, 0, 0.15);
+}
+
+/* Khung chứa ảnh tỉ lệ chuẩn không bao giờ bị méo */
+.img-box {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #2c2c2e;
+}
+
+.property-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Phủ kín khung ảnh tự nhiên */
+  transition: transform 0.4s ease;
+}
+
+.property-card:hover .property-img {
+  transform: scale(1.08); /* Hiệu ứng phóng to nhẹ khi di chuột */
+}
+
+/* Nội dung thông tin */
+.property-info {
+  padding: 16px;
+}
+
+.property-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Tạo dấu ... nếu tên quá dài */
+}
+
+.property-location {
+  font-size: 0.88rem;
+  color: #a1a1a6;
+  margin-bottom: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.property-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #2c2c2e;
+  padding-top: 12px;
+}
+
+.property-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ff9800;
+}
+
+.property-area {
+  font-size: 0.9rem;
+  color: #d1d1d6;
+  background: #2c2c2e;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+/* Styling cho nút Xem chi tiết trong Card */
+.btn-detail {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 0;
+  background-color: transparent;
+  color: #ff9800;
+  border: 1px solid #ff9800;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-detail:hover {
+  background-color: #ff9800;
+  color: #121212;
+}
+
+/* ==============================================
+   MODAL POPUP CHI TIẾT SẢN PHẨM (MỚI)
+   ============================================== */
+
+/* Background che toàn màn hình */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 9999; /* Đảm bảo luôn nổi lên trên cùng */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Khung to hơn (Tăng max-width lên 900px) */
+.modal-content {
+  background-color: #1c1c1e;
+  border: 1px solid #3c3c3e;
+  border-radius: 16px;
+  max-width: 960px; /* Khung rộng rãi hơn hẳn */
+  width: 95%;
+  max-height: 99vh; /* Không vượt quá chiều cao màn hình */
+  position: relative;
+  overflow-y: auto; /* Cho phép cuộn nếu màn hình nhỏ */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+  animation: modalZoom 0.25s ease-out;
+}
+
+@keyframes modalZoom {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* SỬA LỖI NÚT X TẮT MODAL */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  background-color: #2c2c2e;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10000; /* Nằm đè lên trên tất cả thành phần khác */
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.close-btn:hover {
+  background-color: #ff9800;
+  color: #121212;
+  transform: rotate(90deg); /* Hiệu ứng xoay nhẹ đẹp mắt khi rê chuột */
+}
+
+/* Bố cục bên trong khung chi tiết */
+.modal-body {
+  padding: 42px;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Chia tỉ lệ ảnh và chữ cân đối */
+  gap: 28px;
+  align-items: start;
+}
+
+/* Hình ảnh trong Modal */
+.modal-img-wrapper {
+  width: 100%;
+  height: 340px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #2c2c2e;
+}
+
+.modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Thông tin chi tiết */
+.modal-info {
+  color: #ffffff;
+  text-align: left;
+}
+
+.modal-info h2 {
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ff9800;
+  line-height: 1.3;
+}
+
+.modal-price {
+  font-size: 1.15rem;
+  margin: 10px 0;
+  color: #4caf50;
+}
+
+.modal-location, .modal-area {
+  font-size: 0.95rem;
+  margin: 8px 0;
+  color: #e0e0e0;
+}
+
+.modal-divider {
+  border: 0;
+  border-top: 1px solid #333;
+  margin: 12px 0;
+}
+
+.modal-info h4 {
+  font-size: 1rem;
+  color: #ff9800;
+}
+
+.modal-desc {
+  margin-top: -16px;
+  font-size: 0.99rem;
+  line-height: 1.6;
+  color: #b0b0b0;
+  margin-bottom: 16px;
+}
+
+.btn-contact {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff9800;
+  color: #121212;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-contact:hover {
+  background-color: #e68a00;
+}

@@ -1,0 +1,120 @@
+/* ==========================================================
+   SỬA TRIỆT ĐỂ LỖI HEADER VÀ TIÊU ĐỀ TRANG CHỦ TRÊN MOBILE
+   ========================================================== */
+
+@media screen and (max-width: 768px) {
+  /* 1. Xử lý phần Header & Dropdown menu tài khoản */
+  header, .header, .header-container, nav, .navbar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 8px 10px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+  }
+
+  /* Thu nhỏ chữ menu chính trên header để không bị chật */
+  header a, .nav-links a, .header-nav a {
+    font-size: 11px !important;
+    padding: 2px 4px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Ẩn hoặc thu gọn menu dropdown (Thông tin tài khoản, BDS của bạn) nếu nó bị tràn ra ngoài màn hình */
+  .dropdown-menu, .user-dropdown, .header-dropdown {
+    right: 5px !important;
+    left: auto !important;
+    max-width: 200px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Xử lý phần Lời mở đầu / Tiêu đề lớn trang chủ (Hero Section) */
+  .hero-section, .hero-container, .main-banner, section.hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 15px 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Ép tiêu đề lớn hiển thị ngang bình thường, không bị bẻ dọc chữ */
+  h1.hero-title, .hero-section h1, .main-title {
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    white-space: normal !important;
+  }
+
+  /* Đảm bảo toàn bộ văn bản và nút bấm bên trong không bị tràn khung */
+  .hero-section p, .hero-section .btn, .hero-section a {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+  /* 3. Sửa Tin đã lưu (.manage-item) hiển thị hàng ngang, không bị bẻ chữ */
+  .manage-item {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 8px !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .manage-item-info {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+
+  .manage-item-info img {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    border-radius: 4px !important;
+    object-fit: cover !important;
+  }
+
+  .manage-item-details {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .manage-item-details h4 {
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin: 0 0 2px 0 !important;
+  }
+
+  .manage-item-details p {
+    font-size: 10px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin: 0 !important;
+  }
+
+  .manage-item > div:last-child {
+    flex-shrink: 0 !important;
+  }
+
+  .btn-delete-saved {
+    padding: 5px 8px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  

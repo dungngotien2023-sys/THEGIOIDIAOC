@@ -1,0 +1,87 @@
+.auth-page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background: linear-gradient(rgba(15, 17, 23, 0.85), rgba(15, 17, 23, 0.85)), 
+              url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600') no-repeat center center;
+  background-size: cover;
+  border-bottom: 1px solid #292e3a;
+}
+.auth-card{
+  width:min(430px,100%);
+  padding:36px;
+  border:1px solid #2d3140;
+  border-radius:18px;
+  background:#171a22;
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
+}
+.auth-card h1{
+  margin:10px 0 6px;
+  font-size:34px;
+}
+.sub{
+  margin:0 0 28px;
+  color:#aeb5c4;
+}
+form{
+  display:grid;
+  gap:12px;
+}
+label{
+  margin-top:1px;
+  font-size:15px;
+  font-weight:700;
+}
+input{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #383d4d;
+  border-radius:10px;
+  background:#0f1117;
+  color:#fff;
+  outline:none;
+}
+input:focus{
+  border-color:#ff365e;
+}
+button{
+  margin-top:12px;
+  padding:13px 16px;
+  border:0;
+  border-radius:10px;
+  background:#ff365e;
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+  transition: 0.3s;
+
+}
+button:hover{
+  opacity:.72;
+}
+
+.switch{
+  margin:22px 0 0;
+  color:#aeb5c4;
+  text-align:center;
+}
+.switch a{
+  color:#ff6381;
+  transition: 0.3s;
+
+}
+.switch a:hover{
+  opacity:.72;
+}
+#Errorsl, #Passsl{
+  color: #ff5555;
+  text-align: center;
+  margin: 0px;
+  margin-top: 15px;
+  padding: 0px;
+}
+#Passsl{
+color: #28a745
+}

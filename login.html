@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập - Thế Giới Địa Ốc</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <link rel="stylesheet" href="css/reponsive.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+
+</head>
+<body class="auth-page">
+  <div class="auth-card">
+    <h1 id="tap">Thế Giới Địa Ốc</h1>
+    <h2>Đăng nhập</h2>
+    <p class="sub">Đăng nhập để vào trang chính</p>
+
+    <form id="login-form">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="example@gmail.com" required>
+
+      <label for="password">Mật khẩu</label>
+      <input id="password" type="password" placeholder="Nhập mật khẩu" required>
+
+      <button type="submit">Sign In</button>
+    </form>
+      <p id="Errorsl"></p>
+      <p id="Passsl"></p>
+
+    <p class="switch">Chưa có tài khoản? <a href="./register.html">Đăng ký</a></p>
+  </div>
+
+  <script src="./js/login.js"></script>
+</body>
+</html>

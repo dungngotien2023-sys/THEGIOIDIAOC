@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Chủ - Thế Giới Địa Ốc</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="css/reponsive.css">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./index.html">THEGIOIDIAOC.COM</a>
+
+<div class="user-area">
+  <a href="index.html" id="index-btn">Trang chủ</a>
+  <a href="about.html" id="about-btn">Giới thiệu</a>
+  
+  <!-- Khu vực Avatar và Menu xổ xuống -->
+  <div class="user-menu-container">
+    <div id="avatarMenuBtn" class="header-avatar-btn">
+      <img id="headerAvatarImg" src="https://scontent.fsgn5-13.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png&cstp=mx2048x2048&ctp=s200x200&_nc_cat=1&ccb=1-7&_nc_sid=a51fdb&_nc_ohc=y_mL2_aG1XYQ7kNvwHP7Och&_nc_oc=AdoqztSznaNCSUz7nZCI6sZoPOqVl94_Dr4538VbnQBmaqAiXBjiLIWvFoIcMat5te4&_nc_zt=24&_nc_ht=scontent.fsgn5-13.fna&_nc_ss=7b2a8&oh=00_AQNMYK32urcOXlAC4k3h8o3JIZ04iLLO7JFCXm4tsExtxw&oe=6AF18A3A" alt="Avatar">
+    </div>
+
+    <div id="dropdownMenu" class="user-dropdown-menu">
+      <a href="profile.html" class="dropdown-item">Thông tin tài khoản</a>
+      <a href="product.html" class="dropdown-item">BDS của bạn</a>
+      <a id="logoutBtn" class="dropdown-item logout-item">Đăng xuất</a>
+
+    </div>
+    </div>
+  </div>
+</div>
+  </header>
+
+  <main class="hero">
+    <div class="hero-content">
+      <p id="welcome-text">Xin chào!</p>
+      <h1>Tìm Kiếm Nhà Đất & Căn Hộ Mơ Ước</h1>
+      <p>
+        Nền tảng kết nối và quản lý bất động sản hàng đầu, giúp bạn dễ dàng tìm kiếm tổ ấm lý tưởng
+      </p>
+      <a class="cta" href="#real-estate-section">Xem danh sách nhà đất</a>
+    </div>
+  </main>
+
+  <!-- PHẦN MỚI: Danh sách Nhà đất từ API -->
+  <section id="real-estate-section" class="real-estate-section">
+    <h2>Bất Động Sản Nổi Bật</h2>
+    <!-- Thanh tìm kiếm Bất Động Sản có sẵn -->
+<div class="search-filter-container" style="max-width: 1200px; margin: 0 auto 25px auto; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; padding: 0 20px;">
+  <!-- Ô tìm kiếm theo tên hoặc địa điểm -->
+  <input type="text" id="searchKeyword" placeholder="Nhập tên hoặc địa điểm..." style="padding: 10px 16px; background-color: #171a22; border: 1px solid #292e3a; color: white; border-radius: 8px; font-size: 14px; width: 280px; outline: none;">
+  
+  <!-- Lọc theo kiểu BĐS -->
+  <select id="filterType" style="padding: 10px 16px; background-color: #171a22; border: 1px solid #292e3a; color: white; border-radius: 8px; font-size: 14px; outline: none; cursor: pointer;">
+    <option value="">Tất cả kiểu BĐS</option>
+    <option value="Căn hộ">Căn hộ</option>
+    <option value="Biệt thự">Biệt thự</option>
+    <option value="Shophouse">Shophouse</option>
+    <option value="Đất nền">Đất nền</option>
+    <option value="Penthouse">Penthouse</option>
+    <option value="Nhà phố">Nhà phố</option>
+    <option value="Villa">Villa</option>
+  </select>
+
+  <!-- Lọc theo khoảng giá -->
+  <select id="filterPrice" style="padding: 10px 16px; background-color: #171a22; border: 1px solid #292e3a; color: white; border-radius: 8px; font-size: 14px; outline: none; cursor: pointer;">
+    <option value="">Tất cả mức giá</option>
+    <option value="under_3">Dưới 3 Tỷ</option>
+    <option value="3_10">Từ 3 - 10 Tỷ</option>
+    <option value="over_10">Trên 10 Tỷ</option>
+  </select>
+</div>
+    <div id="loading" class="loading">Đang tải danh sách nhà đất...</div>
+    <div id="property-container" class="property-grid">
+      <!-- Dữ liệu nhà đất từ API sẽ render vào đây -->
+    </div>
+  </section>
+<!-- Khu vực hiển thị danh sách sản phẩm bất động sản -->
+<section style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+  <h2 style="color: white; margin-bottom: 20px;">Danh Sách Bất Động Sản Mới Nhất</h2>
+  <div id="productList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+    <!-- Các sản phẩm từ localStorage sẽ được tự động đổ vào đây -->
+  </div>
+</section>
+  <section id="features" class="features">
+    <article>
+      <h2>Tìm Kiếm Thông Minh</h2>
+      <p>Hệ thống lọc đa dạng theo từ khóa, loại hình và khoảng giá giúp bạn nhanh chóng tìm ra bất động sản phù hợp.</p>
+    </article>
+    <article>
+      <h2>Lưu Tin Yêu Thích</h2>
+      <p>Lưu lại các căn hộ, biệt thự tâm đắc vào tài khoản cá nhân để dễ dàng theo dõi và so sánh bất cứ lúc nào.</p>
+    </article>
+    <article>
+      <h2>Đăng & Quản Lý Tin</h2>
+      <p>Dễ dàng đăng tải, chỉnh sửa hoặc xóa các tin rao bán bất động sản của riêng bạn một cách an toàn và tiện lợi.</p>
+    </article>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="index.html">Trang chủ</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="profile.html">Thông tin tài khoản</a>
+        <a href="product.html">BDS của bạn</a>
+      </div>
+      <p class="footer-copyright">&copy; 2026 THEGIOIDIAOC.COM. Tất cả quyền được bảo lưu.</p>
+    </div>
+  </footer>
+
+  <script src="./js/index.js"></script>
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+      <span id="close-modal" class="close-btn">&times;</span>
+      <div id="modal-body" class="modal-body">
+        <!-- Nội dung chi tiết sản phẩm sẽ tự động điền vào đây bằng JS -->
+      </div>
+    </div>
+  </div>
+  <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="k0uU89_LEoceoCtGlChym";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+</body>
+</html>
