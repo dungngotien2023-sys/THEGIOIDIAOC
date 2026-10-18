@@ -4,98 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đăng/Chỉnh Bất Động Sản</title>
-  
-  <!-- CSS liên kết chuẩn -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/product.css">
   <link rel="stylesheet" href="css/reponsive.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
-
 </head>
 <body>
-
+  <!-- header -->
   <header class="topbar">
     <a class="brand" href="./index.html">THEGIOIDIAOC.COM</a>
+    <div class="user-area">
+      <a href="index.html" id="index-btn">Trang chủ</a>
+      <a href="feedback.html" id="about-btn">Góp ý</a>
+      <a href="news.html" id="about-btn">Tin tức</a>
+      <a href="about.html" id="about-btn">Giới thiệu</a>
 
-<div class="user-area">
-  <a href="index.html" id="index-btn">Trang chủ</a>
-  <a href="about.html" id="about-btn">Giới thiệu</a>
-  
-  <!-- Khu vực Avatar và Menu xổ xuống -->
-  <div class="user-menu-container">
-    <div id="avatarMenuBtn" class="header-avatar-btn">
-      <img id="headerAvatarImg" src="https://scontent.fsgn5-13.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png&cstp=mx2048x2048&ctp=s200x200&_nc_cat=1&ccb=1-7&_nc_sid=a51fdb&_nc_ohc=y_mL2_aG1XYQ7kNvwHP7Och&_nc_oc=AdoqztSznaNCSUz7nZCI6sZoPOqVl94_Dr4538VbnQBmaqAiXBjiLIWvFoIcMat5te4&_nc_zt=24&_nc_ht=scontent.fsgn5-13.fna&_nc_ss=7b2a8&oh=00_AQNMYK32urcOXlAC4k3h8o3JIZ04iLLO7JFCXm4tsExtxw&oe=6AF18A3A" alt="Avatar">
+        <!--phần avatar-->
+        <div class="user-menu-container">
+          <div id="avatarMenuBtn" class="header-avatar-btn">
+            <img id="headerAvatarImg" src="https://scontent.fsgn5-13.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png&cstp=mx2048x2048&ctp=s200x200&_nc_cat=1&ccb=1-7&_nc_sid=a51fdb&_nc_ohc=y_mL2_aG1XYQ7kNvwHP7Och&_nc_oc=AdoqztSznaNCSUz7nZCI6sZoPOqVl94_Dr4538VbnQBmaqAiXBjiLIWvFoIcMat5te4&_nc_zt=24&_nc_ht=scontent.fsgn5-13.fna&_nc_ss=7b2a8&oh=00_AQNMYK32urcOXlAC4k3h8o3JIZ04iLLO7JFCXm4tsExtxw&oe=6AF18A3A" alt="Avatar">
+          </div>
+          <div id="dropdownMenu" class="user-dropdown-menu">
+            <a href="profile.html" class="dropdown-item">Thông tin tài khoản</a>
+            <a href="product.html" class="dropdown-item">BDS của bạn</a>
+            <a id="logoutBtn" class="dropdown-item logout-item">Đăng xuất</a>
+          </div>
+        </div>
     </div>
-
-    <div id="dropdownMenu" class="user-dropdown-menu">
-      <a href="profile.html" class="dropdown-item">Thông tin tài khoản</a>
-      <a href="product.html" class="dropdown-item">BDS của bạn</a>
-      <a id="logoutBtn" class="dropdown-item logout-item">Đăng xuất</a>
-
-    </div>
-    </div>
-  </div>
-</div>
   </header>
 
+  <!--đăng/chỉnh BDS-->
   <main>
     <section class="product-section">
       <div class="product-container">
         <h2>Đăng Tin Bất Động Sản Mới</h2>
-        
         <form id="productForm">
           <div class="form-group">
             <label for="title">Tên Bất Động Sản</label>
             <input type="text" id="title" placeholder="Ví dụ: Biệt thự sân vườn cao cấp..." required>
           </div>
-
           <div class="form-group">
             <label for="price">Giá Bán (VNĐ hoặc Tỷ)</label>
             <input type="text" id="price" placeholder="Ví dụ: 5.5 Tỷ hoặc 2.500.000.000 VNĐ" required>
           </div>
-
           <div class="form-group">
             <label for="location">Vị Trí</label>
             <input type="text" id="location" placeholder="Ví dụ: Quận 2, TP. Hồ Chí Minh" required>
           </div>
-
           <div class="form-group">
             <label for="area">Diện Tích (m²)</label>
             <input type="text" id="area" placeholder="Ví dụ: 120 m²" required>
           </div>
-
           <div class="form-group">
             <label for="description">Mô Tả Chi Tiết</label>
             <textarea id="description" rows="4" placeholder="Mô tả về tiện nghi, pháp lý, hướng nhà..." required></textarea>
           </div>
             <div class="form-group">
             <label for="productImageInput">Hình Ảnh Bất Động Sản</label>
-                <input type="file" id="productImageInput" accept="image/*" required>
-            </div>
-          <!-- Thông báo lỗi hoặc thành công -->
+            <input type="file" id="productImageInput" accept="image/*">            </div>
           <div id="Errorsl" style="color: red; margin-bottom: 10px; font-size: 14px;"></div>
           <div id="Passsl" style="margin-bottom: 10px; font-size: 14px;"></div>
-
           <button type="submit" class="btn-save">Đăng Sản Phẩm</button>
         </form>
-        <!-- Thêm phần này bên dưới form đăng sản phẩm trong create-product.html -->
-<div class="manage-products-section" style="margin-top: 50px; border-top: 1px solid #292e3a; padding-top: 30px;">
-  <h3 style="color: white; margin-bottom: 20px; font-size: 20px; text-align: center;">Quản Lý Sản Phẩm Của Tôi</h3>
-  <div id="manageProductList" style="display: flex; flex-direction: column; gap: 15px;">
-    <!-- Danh sách sản phẩm sẽ được render tự động bằng JS -->
-  </div>
-</div>
-<!-- Phần hiển thị danh sách tin đã lưu -->
-<div class="product-container" style="margin-top: 40px;">
-  <h2 style="font-size: 20px; border-bottom: 1px solid #292e3a; padding-bottom: 12px; margin-bottom: 20px;">Tin Bất Động Sản Đã Lưu</h2>
-  <div id="savedWishlistContainer">
-    <!-- Danh sách tin lưu sẽ được render tự động vào đây -->
-  </div>
-</div>
+      <!-- quản lí sản phẩm -->
+        <div class="manage-products-section" style="margin-top: 50px; border-top: 1px solid #292e3a; padding-top: 30px;">
+          <h3 style="color: white; margin-bottom: 20px; font-size: 20px; text-align: center;">Quản Lý Sản Phẩm Của Tôi</h3>
+          <div id="manageProductList" style="display: flex; flex-direction: column; gap: 15px;">
+          </div>
+        </div>
+        <!-- danh sách tin đã lưu -->
+        <div class="product-container" style="margin-top: 40px;">
+          <h2 style="font-size: 20px; border-bottom: 1px solid #292e3a; padding-bottom: 12px; margin-bottom: 20px;">Tin Bất Động Sản Đã Lưu</h2>
+          <div id="savedWishlistContainer">
+          </div>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-links">
@@ -107,10 +95,13 @@
       <p class="footer-copyright">&copy; 2026 THEGIOIDIAOC.COM. Tất cả quyền được bảo lưu.</p>
     </div>
   </footer>
-  <script src="js/product.js"></script>
-    <script src="js/index.js"></script>
+
+    <!--script-->
   <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="k0uU89_LEoceoCtGlChym";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="k0uU89_LEoceoCtGlChym";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+  <script src="js/product.js"></script>
+  <script src="js/index.js"></script>
+  
 </body>
 </html>

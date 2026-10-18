@@ -1,16 +1,12 @@
-// ==============================================
-// 1. BIẾN TOÀN CỤC & KHỞI TẠO LOCALSTORAGE
+// BIẾN TOÀN CỤC & KHỞI TẠO LOCALSTORAGE
 let globalProperties = [];
-
 // Lấy sản phẩm do user đăng từ localStorage đưa vào globalProperties
 let initialLocalProducts = JSON.parse(localStorage.getItem("products")) || [];
 initialLocalProducts.forEach(p => globalProperties.push(p));
 
 
-// ==============================================
-// 2. KIỂM TRA ĐĂNG NHẬP & XỬ LÝ ĐĂNG XUẤT
+//KIỂM TRA ĐĂNG NHẬP & XỬ LÝ ĐĂNG XUẤT
 let currentUserData = localStorage.getItem("currentUser");
-
 if (!currentUserData) {
   window.location.href = "./login.html";
 } else {
@@ -20,7 +16,6 @@ if (!currentUserData) {
     welcomeText.innerText = `Xin chào, ${currentUser.username || "Bạn"}!`;
   }
 }
-
 const logoutBtn = document.getElementById("logout-btn") || document.querySelector(".logout-item");
 if (logoutBtn) {
   logoutBtn.addEventListener("click", function (e) {
@@ -31,25 +26,20 @@ if (logoutBtn) {
 }
 
 
-// ==============================================
-// 3. XỬ LÝ MODAL CHI TIẾT SẢN PHẨM & LƯU TIN
+//MODAL CHI TIẾT SẢN PHẨM
 function openDetailModal(productId) {
   const modal = document.getElementById("product-modal");
   const modalBody = document.getElementById("modal-body");
-
   if (!modal || !modalBody) return;
-
   const item = globalProperties.find((p) => p.id === Number(productId) || p.id === productId);
   if (!item) {
     alert("Không tìm thấy thông tin sản phẩm!");
     return;
   }
-
   let currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
   let userEmail = currentUser.email || "guest";
   let savedWishlist = JSON.parse(localStorage.getItem("wishlist_" + userEmail)) || [];
   let isSaved = savedWishlist.includes(item.id) || savedWishlist.includes(String(item.id));
-
   modalBody.innerHTML = `
     <div class="modal-grid">
       <div class="modal-img-wrapper">
@@ -72,11 +62,12 @@ function openDetailModal(productId) {
       </div>
     </div>
   `;
-
   modal.style.display = "flex";
   document.body.style.overflow = "hidden";
 }
 
+
+// THÊM / BỎ TIN DANH SÁCH LƯU
 window.toggleSaveWishlist = function(productId) {
   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!currentUser) {
@@ -89,7 +80,6 @@ window.toggleSaveWishlist = function(productId) {
 
   let index = savedWishlist.findIndex(id => String(id) === String(productId));
   const btn = document.getElementById("btnSaveWishlist");
-
   if (index > -1) {
     savedWishlist.splice(index, 1);
     if (btn) {
@@ -103,15 +93,15 @@ window.toggleSaveWishlist = function(productId) {
       btn.innerText = "❤️ Đã lưu";
     }
   }
-
   localStorage.setItem(storageKey, JSON.stringify(savedWishlist));
-  
   // Cập nhật lại giao diện danh sách lưu nếu đang ở trang đó
   if (typeof renderSavedWishlist === "function") {
     renderSavedWishlist();
   }
 }
 
+
+// ĐÓNG MODAL CHI TIẾT
 function closeModal() {
   const modal = document.getElementById("product-modal");
   if (modal) {
@@ -119,7 +109,6 @@ function closeModal() {
     document.body.style.overflow = "auto";
   }
 }
-
 document.addEventListener("DOMContentLoaded", () => {
   const closeModalBtn = document.getElementById("close-modal");
   const modal = document.getElementById("product-modal");
@@ -133,25 +122,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ==============================================
-// 4. HIỂN THỊ AVATAR & DROPDOWN MENU
+//HIỂN THỊ AVATAR & DROPDOWN MENU
 document.addEventListener("DOMContentLoaded", function () {
   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
   let headerAvatarImg = document.getElementById("headerAvatarImg");
-
   if (currentUser && currentUser.avatar && headerAvatarImg) {
     headerAvatarImg.src = currentUser.avatar;
   }
-
   const avatarBtn = document.getElementById("avatarMenuBtn");
   const dropdownMenu = document.getElementById("dropdownMenu");
-
   if (avatarBtn && dropdownMenu) {
     avatarBtn.addEventListener("click", function (e) {
       e.stopPropagation();
       dropdownMenu.classList.toggle("show");
     });
-
     document.addEventListener("click", function () {
       if (dropdownMenu.classList.contains("show")) {
         dropdownMenu.classList.remove("show");
@@ -161,8 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// ==============================================
-// 5. RENDER SẢN PHẨM MỚI TỪ LOCALSTORAGE (QUẢN LÝ BÀI ĐĂNG)
+// RENDER SẢN PHẨM MỚI 
 document.addEventListener("DOMContentLoaded", function () {
   const productListContainer = document.getElementById("productList");
   
@@ -173,7 +156,6 @@ document.addEventListener("DOMContentLoaded", function () {
       productListContainer.innerHTML = `<p style="color: #9ca3af; grid-column: 1/-1;">Chưa có sản phẩm bất động sản nào được đăng.</p>`;
       return;
     }
-
     let html = "";
     localProducts.forEach((item) => {
       html += `
@@ -193,14 +175,12 @@ document.addEventListener("DOMContentLoaded", function () {
         </article>
       `;
     });
-
     productListContainer.innerHTML = html;
   }
 });
 
 
-// ==============================================
-// 6. DỮ LIỆU BĐS CÓ SẴN & TÍNH NĂNG LỌC/TÌM KIẾM
+// BĐS CÓ SẴN & LỌC/TÌM KIẾM
 const defaultProductsData = [
   { id: 1, title: "Căn hộ cao cấp Vinhomes Central Park", location: "Bình Thạnh, TP. Hồ Chí Minh", price: "4.8 Tỷ", area: "78 m²", image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600", description: "Căn hộ thiết kế hiện đại 2 phòng ngủ, bàn giao nội thất cao cấp. Tọa lạc tại vị trí đắc địa ven sông Sài Gòn, sở hữu tầm nhìn thoáng đãng và tích hợp đầy đủ tiện ích chuẩn 5 sao như công viên 14 ha, bệnh viện Vinmec, trường học Vinschool." },
   { id: 2, title: "Biệt thự sân vườn Thảo Điền", location: "Thành phố Thủ Đức, TP.HCM", price: "32 Tỷ", area: "280 m²", image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600", description: "Biệt thự đơn lập phong cách châu Âu sang trọng, trang bị hồ bơi riêng và sân vườn xanh mát. Khu vực an ninh 24/7, dân trí cao, gần các trường quốc tế uy tín, phù hợp cho gia đình thượng lưu hoặc chuyên gia nước ngoài sinh sống." },
@@ -223,21 +203,19 @@ defaultProductsData.forEach(item => {
   }
 });
 
+
+// 6.1. LỌC SẢN PHẨM
 function filterDefaultProducts() {
   const searchInput = document.getElementById("searchKeyword");
   const typeSelect = document.getElementById("filterType");
   const priceSelect = document.getElementById("filterPrice");
-
   if (!searchInput) return;
-
   const keyword = searchInput.value.toLowerCase().trim();
   const selectedType = typeSelect ? typeSelect.value.toLowerCase() : "";
   const priceRange = priceSelect ? priceSelect.value : "";
-
   const filtered = defaultProductsData.filter(item => {
     const matchKeyword = item.title.toLowerCase().includes(keyword) || item.location.toLowerCase().includes(keyword);
     const matchType = selectedType === "" || item.title.toLowerCase().includes(selectedType);
-
     let priceNum = parseFloat(item.price);
     let matchPrice = true;
     if (priceRange === "under_3") {
@@ -247,25 +225,22 @@ function filterDefaultProducts() {
     } else if (priceRange === "over_10") {
       matchPrice = priceNum > 10;
     }
-
     return matchKeyword && matchType && matchPrice;
   });
-
   renderFilteredDefaultGrid(filtered);
 }
 
+
+//HIỂN THỊ KẾT QUẢ LỌC
 function renderFilteredDefaultGrid(products) {
   const container = document.getElementById("property-container");
   const loadingElement = document.getElementById("loading");
-
   if (loadingElement) loadingElement.style.display = "none";
   if (!container) return;
-
   if (products.length === 0) {
     container.innerHTML = `<p style="color: #9ca3af; text-align: center; width: 100%; grid-column: 1 / -1;">Không tìm thấy bất động sản phù hợp.</p>`;
     return;
   }
-
   let html = "";
   products.forEach((item) => {
     html += `
@@ -289,26 +264,20 @@ function renderFilteredDefaultGrid(products) {
 }
 
 
-// ==============================================
-// 7. RENDER & QUẢN LÝ DANH SÁCH TIN ĐÃ LƯU (WISHLIST)
+// HIỂN THỊ DANH SÁCH TIN ĐÃ LƯU
 function renderSavedWishlist() {
   const container = document.getElementById("savedWishlistContainer");
   if (!container) return;
-
   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!currentUser) return;
-
   let userEmail = currentUser.email;
   let savedIds = JSON.parse(localStorage.getItem("wishlist_" + userEmail)) || [];
-
   if (savedIds.length === 0) {
     container.innerHTML = `<p style="color: #9ca3af; text-align: center;">Chưa có tin bất động sản nào được lưu.</p>`;
     return;
   }
-
   let userProducts = JSON.parse(localStorage.getItem("products")) || [];
   let allAvailableProducts = [...userProducts, ...defaultProductsData];
-  
   let html = "";
   savedIds.forEach(id => {
     let p = allAvailableProducts.find(item => String(item.id) === String(id));
@@ -329,28 +298,24 @@ function renderSavedWishlist() {
       `;
     }
   });
-
   container.innerHTML = html || `<p style="color: #9ca3af; text-align: center;">Chưa có tin bất động sản nào được lưu.</p>`;
 }
 
+// XÓA TIN KHỎI DANH SÁCH ĐÃ LƯU
 window.removeSavedWishlist = function(productId) {
   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
   if (!currentUser) return;
-
   let storageKey = "wishlist_" + currentUser.email;
   let savedIds = JSON.parse(localStorage.getItem(storageKey)) || [];
-
   savedIds = savedIds.filter(id => String(id) !== String(productId));
   localStorage.setItem(storageKey, JSON.stringify(savedIds));
-
   renderSavedWishlist();
 }
 
 
-// ==============================================
 // 8. KHỞI CHẠY KHI TẢI TRANG
 document.addEventListener("DOMContentLoaded", function () {
-  // Render BĐS có sẵn ban đầu
+  // Render BĐS có sẵn
   renderFilteredDefaultGrid(defaultProductsData);
 
   // Render danh sách tin đã lưu
@@ -360,7 +325,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("searchKeyword");
   const typeSelect = document.getElementById("filterType");
   const priceSelect = document.getElementById("filterPrice");
-
   if (searchInput) searchInput.addEventListener("input", filterDefaultProducts);
   if (typeSelect) typeSelect.addEventListener("change", filterDefaultProducts);
   if (priceSelect) priceSelect.addEventListener("change", filterDefaultProducts);

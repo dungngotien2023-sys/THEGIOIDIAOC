@@ -1,4 +1,3 @@
-/* 1. Gán ảnh nền cho toàn bộ trang (thẻ body) để phủ kín từ trên xuống dưới footer */
 body {
   background: linear-gradient(rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.88)), 
               url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600') no-repeat center center fixed;
@@ -7,7 +6,7 @@ body {
   color: white;
 }
 
-/* 2. Đổi phần product-section thành trong suốt để hiện ảnh nền chung của body */
+/* product */
 .product-section {
   padding: 60px 20px;
   background: transparent; /* Xóa màu nền đặc cũ để lộ ảnh nền body */
@@ -15,8 +14,6 @@ body {
   color: white;
   box-sizing: border-box;
 }
-
-/* 3. Tinh chỉnh khung chứa form cho đẹp mắt, mờ nhẹ sang trọng */
 .product-container {
   max-width: 700px;
   margin: 0 auto;
@@ -26,25 +23,21 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   border: 1px solid #292e3a;
 }
-
 .product-container h2 {
   margin-bottom: 24px;
   font-size: 24px;
   text-align: center;
   color: #ffffff;
 }
-
 .form-group {
   margin-bottom: 20px;
 }
-
 .form-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
   color: #e5e7eb;
 }
-
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -58,14 +51,12 @@ body {
   box-sizing: border-box;
   font-family: inherit;
 }
-
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: #ff365e;
   box-shadow: 0 0 0 3px rgba(255, 54, 94, 0.15);
 }
-
 .btn-save {
   width: 100%;
   padding: 12px;
@@ -79,7 +70,6 @@ body {
   transition: background-color 0.2s;
   margin-top: 10px;
 }
-
 .btn-save:hover {
   background-color: #e21e45;
 }

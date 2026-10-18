@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đóng góp ý kiến - THEGIODIAOC.COM</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/feedback.css">
+  <link rel="stylesheet" href="./css/reponsive.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+</head>
+<body>
+  <!-- header -->
+  <header class="topbar">
+    <a class="brand" href="./index.html">THEGIOIDIAOC.COM</a>
+    <div class="user-area">
+      <a href="index.html" id="index-btn">Trang chủ</a>
+      <a href="feedback.html" id="about-btn">Góp ý</a>
+      <a href="news.html" id="about-btn">Tin tức</a>
+      <a href="about.html" id="about-btn">Giới thiệu</a>
+
+        <!--phần avatar-->
+        <div class="user-menu-container">
+          <div id="avatarMenuBtn" class="header-avatar-btn">
+            <img id="headerAvatarImg" src="https://scontent.fsgn5-13.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png&cstp=mx2048x2048&ctp=s200x200&_nc_cat=1&ccb=1-7&_nc_sid=a51fdb&_nc_ohc=y_mL2_aG1XYQ7kNvwHP7Och&_nc_oc=AdoqztSznaNCSUz7nZCI6sZoPOqVl94_Dr4538VbnQBmaqAiXBjiLIWvFoIcMat5te4&_nc_zt=24&_nc_ht=scontent.fsgn5-13.fna&_nc_ss=7b2a8&oh=00_AQNMYK32urcOXlAC4k3h8o3JIZ04iLLO7JFCXm4tsExtxw&oe=6AF18A3A" alt="Avatar">
+          </div>
+          <div id="dropdownMenu" class="user-dropdown-menu">
+            <a href="profile.html" class="dropdown-item">Thông tin tài khoản</a>
+            <a href="product.html" class="dropdown-item">BDS của bạn</a>
+            <a id="logoutBtn" class="dropdown-item logout-item">Đăng xuất</a>
+          </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- NỘI DUNG FORM ĐÓNG GÓP Ý KIẾN -->
+  <main class="feedback-wrapper">
+    <div class="feedback-container">
+      <h2>Đánh Giá & Góp Ý</h2>
+      <p class="feedback-subtitle">Ý kiến của bạn giúp chúng tôi hoàn thiện nền tảng tốt hơn mỗi ngày.</p>
+      <form id="feedbackForm">
+        <label class="form-label">Chọn số sao đánh giá:</label>
+        <div class="star-rating">
+          <input type="radio" id="star5" name="rating" value="5" required />
+          <label for="star5" title="5 sao">★</label>
+          <input type="radio" id="star4" name="rating" value="4" />
+          <label for="star4" title="4 sao">★</label>
+          <input type="radio" id="star3" name="rating" value="3" />
+          <label for="star3" title="3 sao">★</label>
+          <input type="radio" id="star2" name="rating" value="2" />
+          <label for="star2" title="2 sao">★</label>
+          <input type="radio" id="star1" name="rating" value="1" />
+          <label for="star1" title="1 sao">★</label>
+        </div>
+        <label class="form-label" for="feedbackContent">Viết ý kiến của bạn:</label>
+        <textarea class="feedback-textarea" id="feedbackContent" placeholder="Nhập nhận xét, góp ý hoặc báo lỗi tại đây..." required></textarea>
+        <p id="Passsl"></p>
+        <button type="submit" class="btn-submit-feedback">Gửi Đóng Góp</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="index.html">Trang chủ</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="profile.html">Thông tin tài khoản</a>
+        <a href="product.html">BDS của bạn</a>
+      </div>
+      <p class="footer-copyright">&copy; 2026 THEGIOIDIAOC.COM. Tất cả quyền được bảo lưu.</p>
+    </div>
+  </footer>
+
+  <!--script-->
+  <script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...args)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="k0uU89_LEoceoCtGlChym";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+  <script src="./js/feedback.js"></script>
+  <script src="./js/index.js"></script>
+
+</body>
+</html>

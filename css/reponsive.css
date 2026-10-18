@@ -1,44 +1,171 @@
-/* ==========================================================
-   SỬA TRIỆT ĐỂ LỖI HEADER VÀ TIÊU ĐỀ TRANG CHỦ TRÊN MOBILE
-   ========================================================== */
+.topbar {
+  min-height: 72px;
+  padding: 0 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #292e3a;
+  background: #12151c;
+  position: sticky;
+  top: 0;
+  z-index: 1000; 
+}
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+#index-btn, #about-btn {
+  color: #ff365e;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 1px;
+  background: none;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+#index-btn:hover,
+#about-btn:hover {
+  color: #e21e45;
+}
 
+
+/*Avatar*/
+.user-menu-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.header-avatar-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #ff365e; 
+  transition: transform 0.2s, border-color 0.2s;
+}
+.header-avatar-btn:hover {
+  transform: scale(1.05);
+  border-color: #e21e45;
+}
+.header-avatar-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*Dropdown*/
+.user-dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 55px; 
+  background-color: #171a22;
+  border: 1px solid #292e3a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width: 210px;
+  z-index: 1000;
+  overflow: hidden;
+}
+.user-dropdown-menu.show {
+  display: block;
+  animation: fadeInDown 0.2s ease;
+}
+.dropdown-item {
+  display: block;
+  padding: 12px 18px;
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background-color 0.2s, color 0.2s;
+  border-bottom: 1px solid #21262d;
+}
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+.dropdown-item:hover {
+  background-color: #21262d;
+  color: #ff365e;
+}
+.dropdown-item.logout-item {
+  color: #ff365e;
+}
+#Errorsl, #Passsl {
+  text-align: center;
+  margin: 0;
+  margin-top: 15px;
+  padding: 0;
+}
+#Errorsl {
+  color: #ff5555;
+}
+#Passsl {
+  color: #28a745;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/*footer*/
+.site-footer {
+  background-color: #171a22;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+  margin-top: 60px;
+  border-top: 1px solid #2d3140;
+}
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.footer-links {
+  margin-bottom: 12px;
+}
+.footer-links a {
+  color: #aeb5c4;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.footer-links a:hover {
+  color: #ff365e;
+}
+.footer-copyright {
+  font-size: 0.85rem;
+  color: #6c758d;
+}
+
+
+/* responsive */
 @media screen and (max-width: 768px) {
-  /* 1. Xử lý phần Header & Dropdown menu tài khoản */
-  header, .header, .header-container, nav, .navbar {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-    padding: 8px 10px !important;
-    box-sizing: border-box !important;
-    position: relative !important;
-  }
-
-  /* Thu nhỏ chữ menu chính trên header để không bị chật */
-  header a, .nav-links a, .header-nav a {
-    font-size: 11px !important;
-    padding: 2px 4px !important;
-    white-space: nowrap !important;
-  }
-
-  /* Ẩn hoặc thu gọn menu dropdown (Thông tin tài khoản, BDS của bạn) nếu nó bị tràn ra ngoài màn hình */
   .dropdown-menu, .user-dropdown, .header-dropdown {
     right: 5px !important;
     left: auto !important;
     max-width: 200px !important;
     box-sizing: border-box !important;
   }
-
-  /* 2. Xử lý phần Lời mở đầu / Tiêu đề lớn trang chủ (Hero Section) */
   .hero-section, .hero-container, .main-banner, section.hero {
     width: 100% !important;
     max-width: 100% !important;
     padding: 15px 12px !important;
     box-sizing: border-box !important;
   }
-
-  /* Ép tiêu đề lớn hiển thị ngang bình thường, không bị bẻ dọc chữ */
   h1.hero-title, .hero-section h1, .main-title {
     font-size: 24px !important;
     line-height: 1.25 !important;
@@ -49,15 +176,11 @@
     overflow-wrap: normal !important;
     white-space: normal !important;
   }
-
-  /* Đảm bảo toàn bộ văn bản và nút bấm bên trong không bị tràn khung */
   .hero-section p, .hero-section .btn, .hero-section a {
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
 }
-
-  /* 3. Sửa Tin đã lưu (.manage-item) hiển thị hàng ngang, không bị bẻ chữ */
   .manage-item {
     display: flex !important;
     flex-direction: row !important;
@@ -68,7 +191,6 @@
     width: 100% !important;
     box-sizing: border-box !important;
   }
-
   .manage-item-info {
     display: flex !important;
     flex-direction: row !important;
@@ -77,7 +199,6 @@
     flex: 1 !important;
     min-width: 0 !important;
   }
-
   .manage-item-info img {
     width: 40px !important;
     height: 40px !important;
@@ -85,13 +206,11 @@
     border-radius: 4px !important;
     object-fit: cover !important;
   }
-
   .manage-item-details {
     flex: 1 !important;
     min-width: 0 !important;
     overflow: hidden !important;
   }
-
   .manage-item-details h4 {
     font-size: 12px !important;
     white-space: nowrap !important;
@@ -99,7 +218,6 @@
     text-overflow: ellipsis !important;
     margin: 0 0 2px 0 !important;
   }
-
   .manage-item-details p {
     font-size: 10px !important;
     white-space: nowrap !important;
@@ -107,14 +225,11 @@
     text-overflow: ellipsis !important;
     margin: 0 !important;
   }
-
   .manage-item > div:last-child {
     flex-shrink: 0 !important;
   }
-
   .btn-delete-saved {
     padding: 5px 8px !important;
     font-size: 11px !important;
     white-space: nowrap !important;
   }
-  

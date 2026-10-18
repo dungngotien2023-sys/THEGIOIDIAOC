@@ -1,23 +1,19 @@
 * {
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #0f1117;
   color: #f4f4f4;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 .brand {
   color: #ff365e;
   font-size: 22px;
@@ -26,47 +22,9 @@ a {
   letter-spacing: 1px;
 }
 
-.topbar{
-  min-height:72px;
-  padding:0 2vw;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  border-bottom:1px solid #292e3a;
-  background:#12151c;
-  position:sticky;
-  top:0;
-  z-index: 1000; /* Đảm bảo Header LUÔN NỔI LÊN TRÊN cùng */
-}
-.user-area{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-#logout-btn,#index-btn,#about-btn{
-  color:#ff365e;
-  font-size:18px;
-  font-weight:600;
-  text-decoration:none;
-  letter-spacing:1px;
-  background:none;
-  border: none;
-  transition: 0.3s;
-  cursor: pointer
-
-
-}
-#logout-btn:hover,
-#index-btn:hover,
-#about-btn:hover{
-  color:#ed244c;
-
-}
 
 /* Hero Section */
 .about-hero {
-  /* Kết hợp một lớp phủ tối màu (rgba) với hình nền bất động sản từ Unsplash */
   background: linear-gradient(rgba(15, 17, 23, 0.85), rgba(15, 17, 23, 0.85)), 
               url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600') no-repeat center center;
   background-size: cover;
@@ -74,12 +32,10 @@ a {
   border-bottom: 1px solid #292e3a;
   text-align: center;
 }
-
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
 }
-
 .badge {
   background: rgba(255, 54, 94, 0.15);
   color: #ff365e;
@@ -89,36 +45,31 @@ a {
   font-size: 14px;
   font-weight: 700;
 }
-
 .about-hero h1 {
   font-size: 42px;
   margin: 20px 0 12px;
 }
-
 .highlight {
   color: #ff365e;
 }
-
 .sub {
   color: #aeb5c4;
   font-size: 18px;
   line-height: 1.6;
 }
-
-/* Common Layout Containers */
 .about-container {
   max-width: 1200px;
   margin: 50px auto;
   padding: 0 20px;
 }
-
 .section-title {
   text-align: center;
   font-size: 32px;
   margin-bottom: 40px;
 }
 
-/* Grid Layouts */
+
+/* Grid Layout */
 .grid-2col {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -131,7 +82,8 @@ a {
   gap: 24px;
 }
 
-/* Card Styling (Chuẩn màu auth-card) */
+
+/* card */
 .info-card,
 .feature-card,
 .stat-card {
@@ -143,70 +95,57 @@ a {
   transition: transform 0.3s, border-color 0.3s;
   z-index: 10;
 }
-
 .info-card:hover,
 .feature-card:hover,
 .stat-card:hover {
   transform: translateY(-5px);
   border-color: #ff365e;
 }
-
 .info-card h3 {
   font-size: 24px;
   margin-top: 0;
   color: #fff;
 }
-
 .info-card p {
   color: #aeb5c4;
   line-height: 1.6;
 }
-
-/* Feature Cards */
 .feature-card {
   text-align: center;
 }
-
 .feature-card .icon {
   font-size: 36px;
   margin-bottom: 12px;
 }
-
 .feature-card h4 {
   font-size: 20px;
   margin: 10px 0;
 }
-
 .feature-card p {
   color: #aeb5c4;
   font-size: 15px;
   line-height: 1.5;
 }
 
-/* Stats Section */
 .stats-section {
   max-width: 1200px;
   margin: -20px auto 40px;
   padding: 0 20px;
 }
-
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
-
 .stat-card {
   text-align: center;
   padding: 24px 15px;
 }
-
 .stat-card h2 {
   font-size: 36px;
   color: #ff365e;
   margin: 0 0 6px;
 }
-
 .stat-card p {
   color: #aeb5c4;
   margin: 0;
@@ -214,41 +153,10 @@ a {
   font-weight: 600;
 }
 
-/* Styling cho Footer */
-.site-footer {
-  background-color: #171a22;
-  color: #fff;
-  padding: 30px 0;
-  text-align: center;
-  margin-top: 60px;
-  border-top: 1px solid #2d3140;
+
+/* responsive */
+@media (max-height: 1440px){
+.about-container {
+  padding-bottom: 20px;
 }
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
 }
-
-.footer-links {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: #aeb5c4;
-  text-decoration: none;
-  margin: 0 12px;
-  font-weight: 600;
-    transition: 0.3s;
-
-}
-
-.footer-links a:hover {
-  color: #ff365e;
-}
-
-.footer-copyright {
-  font-size: 0.85rem;
-  color: #6c758d;
-}
-

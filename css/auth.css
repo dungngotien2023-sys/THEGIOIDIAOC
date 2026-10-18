@@ -56,7 +56,6 @@ button{
   font-weight:800;
   cursor:pointer;
   transition: 0.3s;
-
 }
 button:hover{
   opacity:.72;
@@ -70,18 +69,7 @@ button:hover{
 .switch a{
   color:#ff6381;
   transition: 0.3s;
-
 }
 .switch a:hover{
   opacity:.72;
-}
-#Errorsl, #Passsl{
-  color: #ff5555;
-  text-align: center;
-  margin: 0px;
-  margin-top: 15px;
-  padding: 0px;
-}
-#Passsl{
-color: #28a745
 }

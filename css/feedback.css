@@ -1,0 +1,124 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  background: linear-gradient(rgba(15, 17, 23, 0.88), rgba(15, 17, 23, 0.88)),
+              url('https://images.unsplash.com/photo-1567496898669-ee935f5f647a?w=600') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+/* Form container */
+.feedback-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 72px 15px;
+  box-sizing: border-box;
+}
+.feedback-container {
+  width: 100%;
+  max-width: 500px;
+  background-color: #0f1117;
+  border: 1px solid #292e3a;
+  padding: 30px;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+.feedback-container h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #ff365e;
+  font-size: 27px;
+}
+.feedback-subtitle {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.form-label {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+
+/* star */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.star-rating input {
+  display: none;
+}
+.star-rating label {
+  font-size: 38px;
+  color: #4b5563;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #fbbf24; 
+}
+
+
+/* form */
+.feedback-textarea {
+  width: 100%;
+  height: 120px;
+  background-color: #1a1d26;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 12px;
+  color: #fff;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.feedback-textarea:focus {
+  border-color: #ff365e;
+  outline: none;
+}
+.btn-submit-feedback {
+  width: 100%;
+  background-color: #ff365e;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-submit-feedback:hover {
+  background-color: #e02e50;
+}
+#Passsl{
+color: #28a745;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 10px;
+}
+
+
+/* responsive */
+@media (max-height: 1440px){
+.feedback-wrapper {
+  padding-bottom: 610px;
+}
+#Passsl{
+  padding-bottom: 15px !important
+}
+}
